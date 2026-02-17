@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MSSN OGITECH | Ramadan 1447AH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #c8a84b;
+      --gold-light: #e8c96a;
+      --gold-pale: #f5e4b0;
+      --teal: #1a6b6b;
+      --teal-dark: #0d4040;
+      --teal-deep: #082828;
+      --cream: #fdf6e3;
+      --dark: #0a1a1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--teal-deep);
+      color: var(--cream);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(200,168,75,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(26,107,107,0.15) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40Z' fill='none' stroke='rgba(200,168,75,0.07)' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='rgba(200,168,75,0.05)' stroke-width='1'/%3E%3Cpath d='M0 0 L80 80 M80 0 L0 80' stroke='rgba(200,168,75,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+      background-size: cover, cover, 80px 80px;
+      pointer-events: none; z-index: 0;
+    }
+
+    main { position: relative; z-index: 1; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(170deg, var(--teal-dark) 0%, var(--teal-deep) 40%, #050f0f 100%);
+      border-bottom: 2px solid var(--gold);
+      padding: 60px 20px 70px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 60px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 Q150,0 300,30 Q450,60 600,30 Q750,0 900,30 Q1050,60 1200,30 L1200,60 L0,60Z' fill='%23082828'/%3E%3C/svg%3E") center/cover;
+    }
+    .crescent-top {
+      font-size: 2.5rem; color: var(--gold); margin-bottom: 10px;
+      animation: floatGently 4s ease-in-out infinite; display: block;
+    }
+    @keyframes floatGently {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    .arabic-greeting {
+      font-family: 'Amiri', serif; font-size: clamp(1.1rem, 3vw, 1.6rem);
+      color: var(--gold-light); direction: rtl; text-align: center;
+      line-height: 1.8; margin-bottom: 18px;
+      opacity: 0; animation: fadeInUp 1s ease 0.2s forwards;
+    }
+    .org-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border: 1px solid var(--gold); border-radius: 50px;
+      padding: 6px 20px; font-size: 0.7rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold-pale); margin-bottom: 16px;
+      opacity: 0; animation: fadeInUp 1s ease 0.3s forwards;
+    }
+    .hero h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.4rem, 5vw, 2.8rem); font-weight: 700;
+      color: var(--gold); line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(200,168,75,0.4); margin-bottom: 8px;
+      opacity: 0; animation: fadeInUp 1s ease 0.4s forwards;
+    }
+    .hero .subtitle {
+      font-style: italic; font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+      color: rgba(245,228,176,0.75); margin-bottom: 30px;
+      opacity: 0; animation: fadeInUp 1s ease 0.5s forwards;
+    }
+    .ornament {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin: 0 auto 24px; max-width: 300px;
+      opacity: 0; animation: fadeInUp 1s ease 0.6s forwards;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .ornament span { color: var(--gold); font-size: 1.1rem; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── NAV ─── */
+    .nav-strip {
+      background: rgba(13,64,64,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,168,75,0.3);
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: center; flex-wrap: wrap;
+    }
+    .nav-strip a {
+      display: inline-block; padding: 14px 22px;
+      font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+      text-decoration: none; color: var(--gold-pale); transition: all 0.25s;
+      border-bottom: 2px solid transparent; font-family: 'Cinzel Decorative', serif;
+    }
+    .nav-strip a:hover { color: var(--gold); border-bottom-color: var(--gold); background: rgba(200,168,75,0.06); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 70px 20px; max-width: 1100px; margin: 0 auto; }
+
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title .arabic {
+      font-family: 'Amiri', serif; font-size: 1.6rem;
+      color: var(--gold-light); direction: rtl; display: block; margin-bottom: 6px;
+    }
+    .section-title h2 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.2rem, 4vw, 2rem); color: var(--gold); font-weight: 700; margin-bottom: 10px;
+    }
+    .section-title p { font-style: italic; color: rgba(245,228,176,0.6); font-size: 0.9rem; }
+
+    .section-divider { display: flex; align-items: center; gap: 14px; max-width: 200px; margin: 14px auto 0; }
+    .section-divider::before { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+    .section-divider::after  { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .section-divider span { color: var(--gold); font-size: 0.7rem; }
+
+    /* ─── SCHEDULE ─── */
+    .schedule-grid { display: grid; gap: 18px; }
+    .lecture-card {
+      background: linear-gradient(135deg, rgba(13,64,64,0.6), rgba(8,40,40,0.8));
+      border: 1px solid rgba(200,168,75,0.25); border-left: 4px solid var(--gold);
+      border-radius: 6px; padding: 22px 26px;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px;
+      transition: all 0.3s;
+    }
+    .lecture-card:hover { border-color: rgba(200,168,75,0.6); transform: translateX(4px); box-shadow: -4px 0 20px rgba(200,168,75,0.15); }
+    .lecture-num {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel Decorative', serif; font-weight: 700; color: var(--dark); font-size: 1rem;
+      flex-shrink: 0; box-shadow: 0 4px 15px rgba(200,168,75,0.3);
+    }
+    .lecture-info h3 { font-size: 1.02rem; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
+    .lecture-time { font-size: 0.75rem; color: var(--gold-light); letter-spacing: 1px; margin-top: 4px; }
+    .lecturer-badge { text-align: right; flex-shrink: 0; }
+    .lecturer-badge .name {
+      display: inline-block; background: rgba(200,168,75,0.12);
+      border: 1px solid rgba(200,168,75,0.3); border-radius: 4px;
+      padding: 5px 12px; font-size: 0.78rem; color: var(--gold-pale); font-style: italic; white-space: nowrap;
+    }
+    .lecture-moon { font-size: 0.75rem; color: rgba(200,168,75,0.5); margin-top: 4px; text-align: right; }
+    .day-label {
+      font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+      background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.2);
+      display: inline-block; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px;
+    }
+
+    /* ─── LECTURERS ─── */
+    .lecturers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+    .lecturer-card {
+      background: linear-gradient(160deg, rgba(26,107,107,0.4), rgba(8,40,40,0.7));
+      border: 1px solid rgba(200,168,75,0.2); border-radius: 10px; padding: 24px 16px; text-align: center; transition: all 0.3s;
+    }
+    .lecturer-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 12px 30px rgba(200,168,75,0.15); }
+    .lecturer-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border: 2px solid var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin: 0 auto 12px;
+    }
+    .lecturer-card h4 { font-size: 0.82rem; font-weight: 700; color: var(--cream); line-height: 1.3; }
+
+    /* ─── DONATION ─── */
+    #donation { border-top: 1px solid rgba(200,168,75,0.15); }
+    .donation-hero {
+      background: linear-gradient(135deg, rgba(13,64,64,0.8), rgba(8,40,40,0.95));
+      border: 1px solid rgba(200,168,75,0.35); border-radius: 12px;
+      padding: 40px 34px; text-align: center; position: relative; overflow: hidden;
+    }
+    .donation-hero h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1rem, 3vw, 1.5rem); color: var(--gold); margin-bottom: 20px; line-height: 1.3;
+    }
+    .ayah {
+      background: rgba(200,168,75,0.07); border-left: 3px solid var(--gold);
+      border-radius: 4px; padding: 18px 22px; margin: 20px 0; text-align: left;
+    }
+    .ayah p { font-style: italic; color: var(--gold-pale); font-size: 0.92rem; line-height: 1.7; }
+    .ayah cite { display: block; text-align: right; color: var(--gold); font-size: 0.78rem; margin-top: 8px; font-style: normal; }
+    .donation-body { font-size: 0.95rem; line-height: 1.9; color: rgba(245,228,176,0.85); margin-bottom: 16px; text-align: left; }
+
+    /* ─── PROGRESS ─── */
+    .progress-section {
+      background: rgba(8,40,40,0.7); border: 1px solid rgba(200,168,75,0.25);
+      border-radius: 10px; padding: 28px 26px; margin: 28px 0;
+    }
+    .progress-section h4 {
+      font-family: 'Cinzel Decorative', serif; font-size: 0.85rem;
+      color: var(--gold); letter-spacing: 2px; text-align: center; margin-bottom: 20px;
+    }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    .stat-box { border-radius: 8px; padding: 16px 10px; text-align: center; }
+    .stat-box.target   { background: rgba(40,160,40,0.15);  border: 1px solid rgba(40,160,40,0.4); }
+    .stat-box.raised   { background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.4); }
+    .stat-box.shortfall{ background: rgba(200,50,50,0.12);  border: 1px solid rgba(200,50,50,0.4); }
+    .stat-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+    .stat-box.target .stat-label    { color: #6fda6f; }
+    .stat-box.raised .stat-label    { color: var(--gold-light); }
+    .stat-box.shortfall .stat-label { color: #e07070; }
+    .stat-value { font-family: 'Cinzel Decorative', serif; font-size: clamp(0.75rem, 2vw, 1.05rem); font-weight: 700; color: var(--cream); }
+    .progress-bar-wrap { background: rgba(255,255,255,0.07); border-radius: 50px; height: 12px; overflow: hidden; margin-bottom: 8px; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #6fda6f, var(--gold)); border-radius: 50px; width: 0; transition: width 1.8s ease; }
+    .progress-pct { font-size: 0.72rem; color: rgba(245,228,176,0.5); text-align: right; letter-spacing: 1px; }
+
+    /* ─── ACCOUNT BOX ─── */
+    .account-box {
+      background: linear-gradient(135deg, rgba(26,107,107,0.35), rgba(8,40,40,0.8));
+      border: 2px solid var(--gold); border-radius: 10px;
+      padding: 26px 30px; margin: 28px 0; text-align: center;
+    }
+    .account-box .acct-title {
+      font-family: 'Cinzel Decorative', serif; font-size: 0.8rem;
+      letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 18px;
+    }
+    .account-number {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.5rem, 5vw, 2.4rem); color: var(--gold-light);
+      letter-spacing: 6px; text-shadow: 0 0 20px rgba(200,168,75,0.4); margin-bottom: 10px;
+    }
+    .account-name { font-size: 0.9rem; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+    .account-bank {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,168,75,0.1); border: 1px solid rgba(200,168,75,0.3);
+      border-radius: 50px; padding: 6px 18px; font-size: 0.8rem; color: var(--gold-pale); margin-top: 4px;
+    }
+
+    /* ─── CONTACTS ─── */
+    .contacts-box {
+      background: rgba(8,40,40,0.6); border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 10px; padding: 24px; margin: 24px 0;
+    }
+    .contacts-box h4 {
+      font-family: 'Cinzel Decorative', serif; font-size: 0.78rem;
+      letter-spacing: 2px; color: var(--gold); text-align: center; margin-bottom: 16px;
+    }
+    .contacts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+    .contact-item {
+      background: rgba(200,168,75,0.06); border: 1px solid rgba(200,168,75,0.15);
+      border-radius: 6px; padding: 10px 14px; text-align: center;
+      font-size: 0.88rem; color: var(--gold-pale); letter-spacing: 1px; transition: all 0.2s;
+    }
+    .contact-item:hover { border-color: var(--gold); background: rgba(200,168,75,0.12); }
+    .contact-item a { color: inherit; text-decoration: none; }
+
+    /* ─── FLYERS — plain images, nothing blocking display ─── */
+    .flyer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .flyer-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 2px solid rgba(200,168,75,0.35);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+
+    /* ─── ABOUT ─── */
+    .about-box {
+      background: linear-gradient(135deg, rgba(13,64,64,0.5), rgba(8,40,40,0.7));
+      border: 1px solid rgba(200,168,75,0.2); border-radius: 10px; padding: 32px; text-align: center;
+    }
+    .about-box p { color: rgba(245,228,176,0.8); line-height: 1.9; font-size: 0.95rem; }
+    .dua-arabic { font-family: 'Amiri', serif; font-size: 1.4rem; direction: rtl; color: var(--gold-light); margin: 16px 0; display: block; }
+    .stars { display: flex; justify-content: center; gap: 8px; margin: 12px 0; }
+    .stars span { color: var(--gold); font-size: 0.55rem; opacity: 0.7; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: rgba(5,15,15,0.95); border-top: 1px solid rgba(200,168,75,0.25);
+      padding: 30px 20px; text-align: center;
+    }
+    footer .footer-logo { font-family: 'Cinzel Decorative', serif; font-size: 0.85rem; color: var(--gold); margin-bottom: 8px; }
+    footer p { font-size: 0.75rem; color: rgba(245,228,176,0.4); line-height: 1.7; }
+    footer .arabic-footer { font-family: 'Amiri', serif; font-size: 1.1rem; direction: rtl; color: rgba(200,168,75,0.5); margin-top: 10px; display: block; }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .lecture-card { grid-template-columns: auto 1fr; grid-template-rows: auto auto; }
+      .lecturer-badge { grid-column: 2; text-align: left; }
+      .nav-strip a { padding: 10px 12px; font-size: 0.6rem; letter-spacing: 1px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .account-number { letter-spacing: 3px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="crescent-top">☽ ✦ ☾</span>
+    <div class="arabic-greeting">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <div class="arabic-greeting" style="animation-delay:0.35s;">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</div>
+    <div class="org-badge">MSSN Old Executives Group</div>
+    <h1>Ramadan Lecture Series<br>1447 A.H.</h1>
+    <p class="subtitle">Ogun State Institute of Technology, Igbesa (OGITECH)</p>
+    <div class="ornament"><span>✦</span></div>
+    <div style="opacity:0;animation:fadeInUp 1s ease 0.7s forwards;display:inline-block;">
+      <span style="font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;color:rgba(245,228,176,0.5);">
+        10 Lectures · 30 Nights · One Ummah
+      </span>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav-strip">
+    <a href="#schedule">Schedule</a>
+    <a href="#lecturers">Lecturers</a>
+    <a href="#donation">Mosque Fund</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="section-title reveal">
+      <span class="arabic">جَدْوَلُ الْمُحَاضَرَات</span>
+      <h2>Ramadan Lecture Schedule</h2>
+      <p>Delivered every 3 days throughout the blessed month · 4:30 PM daily</p>
+      <div class="section-divider"><span>✦</span></div>
+    </div>
+    <div class="schedule-grid" id="scheduleGrid"></div>
+  </section>
+
+  <!-- LECTURERS -->
+  <section id="lecturers">
+    <div class="section-title reveal">
+      <span class="arabic">الْمُحَاضِرُون</span>
+      <h2>Our Distinguished Lecturers</h2>
+      <p>May Allah reward them abundantly — Āmīn</p>
+      <div class="section-divider"><span>✦</span></div>
+    </div>
+    <div class="lecturers-grid" id="lecturersGrid"></div>
+  </section>
+
+  <!-- DONATION -->
+  <section id="donation">
+    <div class="section-title reveal">
+      <span class="arabic">الْمَسْجِد</span>
+      <h2>Mosque Construction Fund</h2>
+      <p>Sadaqah Jariyah — A charity that flows even after you are gone</p>
+      <div class="section-divider"><span>✦</span></div>
+    </div>
+
+    <div class="donation-hero reveal">
+      <h3>📢 Fundraising for the Construction of<br>OGITECH Central Mosque, Igbesa</h3>
+
+      <div class="ayah">
+        <p>"Those who spend their wealth in the cause of Allah, by night and by day, in secret and in public, they shall have their reward with their Lord. On them shall be no fear, nor shall they grieve."</p>
+        <cite>— Qur'ān 2:274</cite>
+      </div>
+
+      <p class="donation-body">
+        In the name of Allah, the Most Merciful, the Most Compassionate. The Ogun State Institute
+        of Technology (OGITECH), Igbesa Central Mosque stands as a vital place of worship, learning,
+        unity, and spiritual growth for students, staff, and the surrounding Muslim community.
+        As the population of Muslims within and around the institution continues to grow, there is
+        a pressing need to complete the mosque structure to adequately serve the Ummah.
+      </p>
+      <p class="donation-body">
+        We are calling on individuals, alumni, parents, philanthropists, organizations, and
+        well-wishers to support this noble cause through generous donations towards the ongoing
+        construction project. Contributing to the building of a mosque is a
+        <em style="color:var(--gold-light);">Sadaqah Jariyah</em> — a continuous charity
+        whose reward endures long after we depart from this world.
+      </p>
+
+      <!-- Progress Report -->
+      <div class="progress-section">
+        <h4>📊 Construction Fund Report</h4>
+        <div class="stats-row">
+          <div class="stat-box target">
+            <div class="stat-label">Target</div>
+            <div class="stat-value">₦50,000,000</div>
+          </div>
+          <div class="stat-box raised">
+            <div class="stat-label">Realised</div>
+            <div class="stat-value">₦83,987</div>
+          </div>
+          <div class="stat-box shortfall">
+            <div class="stat-label">Shortfall</div>
+            <div class="stat-value">₦49,916,013</div>
+          </div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+        <div class="progress-pct">0.17% raised — every contribution makes a difference</div>
+      </div>
+
+      <!-- Account Details -->
+      <div class="account-box">
+        <div class="acct-title">🏦 Donation Account Details</div>
+        <div class="account-number">0299219648</div>
+        <div class="account-name">Muslim Students' Society of Nigeria (MSSN) OGITECH</div>
+        <div class="account-bank">🏛 Wema Bank</div>
+      </div>
+
+      <!-- Contact Numbers -->
+      <div class="contacts-box">
+        <h4>📞 For Inquiries, Please Contact</h4>
+        <div class="contacts-grid">
+          <div class="contact-item"><a href="tel:+2348025410173">+234 802 541 0173</a></div>
+          <div class="contact-item"><a href="tel:+2347084766284">+234 708 476 6284</a></div>
+          <div class="contact-item"><a href="tel:+2349060684950">+234 906 068 4950</a></div>
+          <div class="contact-item"><a href="tel:+2349057344918">+234 905 734 4918</a></div>
+          <div class="contact-item"><a href="tel:+2347026976752">+234 702 697 6752</a></div>
+          <div class="contact-item"><a href="tel:+2347036280660">+234 703 628 0660</a></div>
+        </div>
+      </div>
+
+      <!-- Flyers: plain <img> tags, no JS, no fallback blocking display -->
+      <div class="flyer-grid">
+        <img src="mm.jpg" alt="MSSN OGITECH Mosque Fundraising Report">
+        <img src="m.jpg"  alt="MSSN OGITECH Mosque Fundraising Flyer">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-title reveal">
+      <span class="arabic">عَنَّا</span>
+      <h2>About MSSN OGITECH</h2>
+      <div class="section-divider"><span>✦</span></div>
+    </div>
+    <div class="about-box reveal">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p>
+        The <strong style="color:var(--gold-light);">Muslim Students' Society of Nigeria (MSSN)</strong>,
+        Old Executives Group — Ogun State Institute of Technology, Igbesa — is a community of
+        dedicated alumni working to sustain the spiritual and educational legacy of Islam within
+        the institution. This Ramadan programme is organized with love, dedication, and the sincere
+        hope that it benefits every member of our growing Ummah.
+      </p>
+      <span class="dua-arabic">وَتَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ صَالِحَ الأَعْمَال</span>
+      <p style="color:rgba(200,168,75,0.7);font-style:italic;font-size:0.85rem;">
+        "May Allah accept from us and from you our righteous deeds."
+      </p>
+      <div style="margin-top:22px;padding-top:22px;border-top:1px solid rgba(200,168,75,0.15);">
+        <p style="font-size:0.8rem;color:rgba(245,228,176,0.5);">
+          جَزَاكُمُ اللهُ خَيْرًا — Jazākumullāhu khayran
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">MSSN OGITECH · Igbesa</div>
+  <p>Ramadan Lecture Series 1447 A.H. &nbsp;|&nbsp; Ogun State Institute of Technology</p>
+  <p style="margin-top:6px;">May Allah bless this effort and grant us a complete and accepted Ramadan.</p>
+  <span class="arabic-footer">رَمَضَان مُبَارَك</span>
+</footer>
+
+<script>
+  const topics = [
+    "The Significance of Ramadan",
+    "Fasting: Benefits and Wisdom",
+    "Qur'an Reflection and Tafsīr",
+    "The Importance of Prayer (Salāh) in Ramadan",
+    "Zakāt and Charity in Ramadan",
+    "Overcoming Challenges of Fasting",
+    "The Night of Power (Laylatul Qadr)",
+    "Forgiveness and Repentance in Ramadan",
+    "Building Community and Family Ties",
+    "Spiritual Growth and Self-Improvement 🌙"
+  ];
+
+  const lecturers = [
+    "Alfa Abdluhadi","Alfa Abdulquyum","Alfa Abdusomad",
+    "Alfa Habeebullahi","Alfa Abdulfattah","Amir Ibrahim","Alfa Monsur"
+  ];
+
+  const schedule = topics.map((topic, i) => ({
+    num: i + 1, topic, day: 1 + i * 3, lecturer: lecturers[i % lecturers.length]
+  }));
+
+  // Render schedule
+  const grid = document.getElementById('scheduleGrid');
+  schedule.forEach((lec, idx) => {
+    const card = document.createElement('div');
+    card.className = 'lecture-card reveal';
+    card.style.transitionDelay = (idx * 0.06) + 's';
+    card.innerHTML = `
+      <div class="lecture-num">${lec.num}</div>
+      <div class="lecture-info">
+        <span class="day-label">Ramadan Day ${lec.day}</span>
+        <h3>${lec.topic}</h3>
+        <div class="lecture-time">🕓 4:30 PM</div>
+      </div>
+      <div class="lecturer-badge">
+        <span class="name">📖 ${lec.lecturer}</span>
+        <div class="lecture-moon">🌙</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // Render lecturers
+  const lgrid = document.getElementById('lecturersGrid');
+  const icons = ['☪','📖','🌙','✨','🕌','⭐','🌟'];
+  lecturers.forEach((name, i) => {
+    const count = schedule.filter(s => s.lecturer === name).length;
+    const card = document.createElement('div');
+    card.className = 'lecturer-card reveal';
+    card.style.transitionDelay = (i * 0.08) + 's';
+    card.innerHTML = `
+      <div class="lecturer-icon">${icons[i]}</div>
+      <h4>${name}</h4>
+      <p style="font-size:0.68rem;color:rgba(200,168,75,0.6);margin-top:6px;">${count} lecture${count!==1?'s':''}</p>`;
+    lgrid.appendChild(card);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => observer.observe(el)), 50);
+
+  // Animate progress bar when visible
+  const barEl = document.getElementById('progressBar');
+  const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { barEl.style.width = '0.17%'; barObserver.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  if (barEl) barObserver.observe(barEl);
+</script>
+</body>
+</html>
